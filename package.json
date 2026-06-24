@@ -1,9 +1,9 @@
 {
-  "name": "claude-code-best",
-  "version": "2.8.1",
-  "description": "Reverse-engineered Anthropic Claude Code CLI — interactive AI coding assistant in the terminal",
+  "name": "loveflow-code",
+  "version": "3.0.0",
+  "description": "LoveFlow-Code — AI coding assistant with purple LoveFlow theme",
   "type": "module",
-  "author": "claude-code-best <claude-code-best@proton.me>",
+  "author": "LoveFlow-Code",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/claude-code-best/claude-code.git"
@@ -13,21 +13,19 @@
     "url": "https://github.com/claude-code-best/claude-code/issues"
   },
   "keywords": [
-    "claude",
-    "anthropic",
-    "cli",
+    "loveflow",
     "ai",
+    "cli",
     "coding-assistant",
     "terminal",
     "repl"
   ],
   "engines": {
-    "bun": ">=1.3.0"
+    "node": ">=18.0.0"
   },
   "bin": {
-    "ccb": "dist/cli-node.js",
-    "ccb-bun": "dist/cli-bun.js",
-    "claude-code-best": "dist/cli-node.js"
+    "loveflow": "dist/cli-node.js",
+    "ccb": "dist/cli-node.js"
   },
   "workspaces": [
     "packages/*",
@@ -36,6 +34,7 @@
   ],
   "files": [
     "dist",
+    "images",
     "scripts/postinstall.cjs",
     "scripts/run-parallel.mjs",
     "scripts/setup-chrome-mcp.mjs"

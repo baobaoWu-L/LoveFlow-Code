@@ -753,6 +753,10 @@ export async function main() {
 
   process.on('exit', () => {
     resetCursor();
+    // 退出时换行，确保 shell 提示符在 CLI 下方新起一行
+    try {
+      process.stdout.write('\n\n\n\n');
+    } catch {}
     // 杀掉所有 running workflow，避免孤儿 task 留在 AppState 里
     try {
       const { peekWorkflowService } = require('./workflow/service.js') as {
@@ -764,12 +768,11 @@ export async function main() {
     }
   });
   process.on('SIGINT', () => {
-    // In print mode, print.ts registers its own SIGINT handler that aborts
-    // the in-flight query and calls gracefulShutdown; skip here to avoid
-    // preempting it with a synchronous process.exit().
     if (process.argv.includes('-p') || process.argv.includes('--print')) {
       return;
     }
+    // 退出前换行，确保 shell 提示符在 CLI 下方新起一行
+    process.stdout.write('\n\n');
     process.exit(0);
   });
   profileCheckpoint('main_warning_handler_initialized');
@@ -1148,8 +1151,8 @@ async function run(): Promise<CommanderCommand> {
   });
 
   program
-    .name('claude')
-    .description(`Claude Code - starts an interactive session by default, use -p/--print for non-interactive output`)
+    .name('loveflow')
+    .description(`LoveFlow-Code - starts an interactive session by default, use -p/--print for non-interactive output`)
     .argument('[prompt]', 'Your prompt', String)
     // Subcommands inherit helpOption via commander's copyInheritedSettings —
     // setting it once here covers mcp, plugin, auth, and all other subcommands.
@@ -1444,7 +1447,7 @@ async function run(): Promise<CommanderCommand> {
       // Ignore "code" as a prompt - treat it the same as no prompt
       if (prompt === 'code') {
         logEvent('tengu_code_prompt_ignored', {});
-        console.warn(chalk.yellow('Tip: You can launch Claude Code with just `claude`'));
+        console.warn(chalk.yellow('Tip: You can launch LoveFlow-Code with just `loveflow`'));
         prompt = undefined;
       }
 
@@ -4050,7 +4053,7 @@ async function run(): Promise<CommanderCommand> {
           if (!isRemoteTuiEnabled && !hasInitialPrompt) {
             return await exitWithError(
               root,
-              'Error: --remote requires a description.\nUsage: claude --remote "your task description"',
+              'Error: --remote requires a description.\nUsage: loveflow --remote "your task description"',
               () => gracefulShutdown(1),
             );
           }
@@ -4082,7 +4085,7 @@ async function run(): Promise<CommanderCommand> {
             // Original behavior: print session info and exit
             process.stdout.write(`Created remote session: ${createdSession.title}\n`);
             process.stdout.write(`View: ${getRemoteSessionUrl(createdSession.id)}?m=0\n`);
-            process.stdout.write(`Resume with: claude --teleport ${createdSession.id}\n`);
+            process.stdout.write(`Resume with: loveflow --teleport ${createdSession.id}\n`);
             await gracefulShutdown(0);
             process.exit(0);
           }
@@ -4203,7 +4206,7 @@ async function run(): Promise<CommanderCommand> {
                   } else {
                     // No known paths - show original error
                     throw new TeleportOperationError(
-                      `You must run claude --teleport ${teleport} from a checkout of ${sessionRepo}.`,
+                      `You must run loveflow --teleport ${teleport} from a checkout of ${sessionRepo}.`,
                       chalk.red(
                         `You must run claude --teleport ${teleport} from a checkout of ${chalk.bold(sessionRepo)}.\n`,
                       ),
@@ -4458,7 +4461,7 @@ async function run(): Promise<CommanderCommand> {
         );
       }
     })
-    .version(`${MACRO.VERSION} (Claude Code)`, '-v, --version', 'Output the version number');
+    .version(`${MACRO.VERSION} (LoveFlow-Code)`, '-v, --version', 'Output the version number');
 
   // Worktree flags
   program.option('-w, --worktree [name]', 'Create a new git worktree for this session (optionally specify a name)');

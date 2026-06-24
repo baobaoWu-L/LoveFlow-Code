@@ -414,18 +414,7 @@ function ModeIndicator({
     ...(shouldShowPrStatus
       ? [<PrBadge key="pr-status" number={prStatus.number!} url={prStatus.url!} reviewState={prStatus.reviewState!} />]
       : []),
-    // RSS memory indicator — always visible
-    ...(rssState
-      ? [
-          <Text
-            key="rss"
-            dimColor={rssState.level === 'normal'}
-            color={rssState.level === 'error' ? 'error' : rssState.level === 'warning' ? 'warning' : undefined}
-          >
-            {rssState.text} · pid:{process.pid}
-          </Text>,
-        ]
-      : []),
+    // RSS memory indicator removed (LoveFlow-Code branding)
     // Goal elapsed indicator — compact "goal (XhYmin)" after PID
     ...(feature('GOAL') &&
     (require('../../services/goal/goalState.js') as typeof import('../../services/goal/goalState')).getGoal()

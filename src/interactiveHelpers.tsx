@@ -122,6 +122,8 @@ export function showSetupDialog<T = void>(
  * Handles the common epilogue: start deferred prefetches, wait for exit, graceful shutdown.
  */
 export async function renderAndRun(root: Root, element: React.ReactNode): Promise<void> {
+  // 清除屏幕，避免 shell 提示符残留
+  process.stdout.write('\x1b[2J\x1b[H');
   root.render(element);
   startDeferredPrefetches();
   await root.waitUntilExit();

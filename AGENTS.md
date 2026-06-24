@@ -1,10 +1,10 @@
-# CLAUDE.md
+# LoveFlow-Code
 
-This file provides guidance to Claude Code (claude.ai/code) and other AI coding agents when working with code in this repository.
+This file provides guidance to LoveFlow-Code and other AI coding agents when working with code in this repository.
 
 ## Project Overview
 
-This is a **reverse-engineered / decompiled** version of Anthropic's official Claude Code CLI tool. The goal is to restore core functionality while trimming secondary capabilities. Many modules are stubbed or feature-flagged off. TypeScript strict mode is enforced — **`bunx tsc --noEmit` must pass with zero errors**.
+This is a **LoveFlow-Code** fork of Claude Code CLI tool, rebranded with pink theme and LoveFlow identity. TypeScript strict mode is enforced — **`bunx tsc --noEmit` must pass with zero errors**.
 
 ## Git Commit Message Convention
 

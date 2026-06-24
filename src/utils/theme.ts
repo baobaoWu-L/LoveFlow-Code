@@ -113,31 +113,31 @@ export type ThemeSetting = (typeof THEME_SETTINGS)[number]
  * from users' custom terminal ANSI color definitions
  */
 const lightTheme: Theme = {
-  autoAccept: 'rgb(135,0,255)', // Electric violet
-  bashBorder: 'rgb(255,0,135)', // Vibrant pink
-  claude: 'rgb(215,119,87)', // Claude orange
-  claudeShimmer: 'rgb(245,149,117)', // Lighter claude orange for shimmer effect
+  autoAccept: 'rgb(215,80,130)', // LoveFlow pink
+  bashBorder: 'rgb(235,80,150)', // LoveFlow pink
+  claude: 'rgb(235,100,150)', // LoveFlow warm pink
+  claudeShimmer: 'rgb(255,145,185)', // Lighter LoveFlow pink for shimmer effect
   claudeBlue_FOR_SYSTEM_SPINNER: 'rgb(87,105,247)', // Medium blue for system spinner
   claudeBlueShimmer_FOR_SYSTEM_SPINNER: 'rgb(117,135,255)', // Lighter blue for system spinner shimmer
-  permission: 'rgb(87,105,247)', // Medium blue
-  permissionShimmer: 'rgb(137,155,255)', // Lighter blue for shimmer effect
-  planMode: 'rgb(0,102,102)', // Muted teal
-  ide: 'rgb(71,130,200)', // Muted blue
-  promptBorder: 'rgb(153,153,153)', // Medium gray
-  promptBorderShimmer: 'rgb(183,183,183)', // Lighter gray for shimmer effect
+  permission: 'rgb(200,80,150)', // Pink-purple
+  permissionShimmer: 'rgb(230,120,190)', // Lighter pink-purple for shimmer
+  planMode: 'rgb(180,60,120)', // Muted pink
+  ide: 'rgb(200,90,140)', // Pinkish
+  promptBorder: 'rgb(200,160,170)', // Pink-gray
+  promptBorderShimmer: 'rgb(220,180,190)', // Lighter pink-gray for shimmer effect
   text: 'rgb(0,0,0)', // Black
   inverseText: 'rgb(255,255,255)', // White
-  inactive: 'rgb(102,102,102)', // Dark gray
-  inactiveShimmer: 'rgb(142,142,142)', // Lighter gray for shimmer effect
-  subtle: 'rgb(175,175,175)', // Light gray
-  suggestion: 'rgb(87,105,247)', // Medium blue
-  remember: 'rgb(0,0,255)', // Blue
-  background: 'rgb(0,153,153)', // Cyan
+  inactive: 'rgb(160,120,130)', // Pinkish gray
+  inactiveShimmer: 'rgb(190,150,160)', // Lighter pink-gray for shimmer effect
+  subtle: 'rgb(200,170,175)', // Light pink-gray
+  suggestion: 'rgb(200,80,150)', // Pink-purple
+  remember: 'rgb(215,80,130)', // LoveFlow pink
+  background: 'rgb(255,220,230)', // Warm pink bg
   success: 'rgb(44,122,57)', // Green
   error: 'rgb(171,43,63)', // Red
-  warning: 'rgb(150,108,30)', // Amber
-  merged: 'rgb(135,0,255)', // Electric violet (matches autoAccept)
-  warningShimmer: 'rgb(200,158,80)', // Lighter amber for shimmer effect
+  warning: 'rgb(200,120,40)', // Amber
+  merged: 'rgb(215,80,130)', // LoveFlow pink
+  warningShimmer: 'rgb(220,150,70)', // Lighter amber for shimmer effect
   diffAdded: 'rgb(105,219,124)', // Light green
   diffRemoved: 'rgb(255,168,180)', // Light red
   diffAddedDimmed: 'rgb(199,225,203)', // Very light green
@@ -158,22 +158,22 @@ const lightTheme: Theme = {
   // Chrome colors
   chromeYellow: 'rgb(251,188,4)', // Chrome yellow
   // TUI V2 colors
-  clawd_body: 'rgb(215,119,87)',
+  clawd_body: 'rgb(150,100,220)', // LoveFlow purple
   clawd_background: 'rgb(0,0,0)',
-  userMessageBackground: 'rgb(240, 240, 240)', // Slightly darker grey for optimal contrast
-  userMessageBackgroundHover: 'rgb(252, 252, 252)', // ≥250 to quantize distinct from base at 256-color level
-  messageActionsBackground: 'rgb(232, 236, 244)', // cool gray — darker than userMsg 240 (visible on white), slight blue toward `suggestion`
-  selectionBg: 'rgb(180, 213, 255)', // classic light-mode selection blue (macOS/VS Code-ish); dark fgs stay readable
-  bashMessageBackgroundColor: 'rgb(250, 245, 250)',
+  userMessageBackground: 'rgb(252, 245, 248)', // Warm pink-gray
+  userMessageBackgroundHover: 'rgb(255, 248, 250)', // Warmer hover
+  messageActionsBackground: 'rgb(245, 235, 240)', // warm pink-gray
+  selectionBg: 'rgb(255, 200, 220)', // pink selection
+  bashMessageBackgroundColor: 'rgb(252, 242, 248)',
 
-  memoryBackgroundColor: 'rgb(230, 245, 250)',
-  rate_limit_fill: 'rgb(87,105,247)', // Medium blue
-  rate_limit_empty: 'rgb(39,47,111)', // Dark blue
-  fastMode: 'rgb(255,106,0)', // Electric orange
-  fastModeShimmer: 'rgb(255,150,50)', // Lighter orange for shimmer
+  memoryBackgroundColor: 'rgb(252, 235, 242)',
+  rate_limit_fill: 'rgb(235,100,150)', // LoveFlow pink
+  rate_limit_empty: 'rgb(160,70,100)', // Dark pink
+  fastMode: 'rgb(235,80,140)', // LoveFlow pink
+  fastModeShimmer: 'rgb(255,120,170)', // Lighter pink for shimmer
   // Brief/assistant mode
   briefLabelYou: 'rgb(37,99,235)', // Blue
-  briefLabelClaude: 'rgb(215,119,87)', // Brand orange
+  briefLabelClaude: 'rgb(235,100,150)', // LoveFlow pink
   rainbow_red: 'rgb(235,95,87)',
   rainbow_orange: 'rgb(245,139,87)',
   rainbow_yellow: 'rgb(250,195,95)',
@@ -197,14 +197,14 @@ const lightTheme: Theme = {
 const lightAnsiTheme: Theme = {
   autoAccept: 'ansi:magenta',
   bashBorder: 'ansi:magenta',
-  claude: 'ansi:redBright',
-  claudeShimmer: 'ansi:yellowBright',
+  claude: 'ansi:magenta',
+  claudeShimmer: 'ansi:magentaBright',
   claudeBlue_FOR_SYSTEM_SPINNER: 'ansi:blue',
   claudeBlueShimmer_FOR_SYSTEM_SPINNER: 'ansi:blueBright',
-  permission: 'ansi:blue',
-  permissionShimmer: 'ansi:blueBright',
-  planMode: 'ansi:cyan',
-  ide: 'ansi:blueBright',
+  permission: 'ansi:magenta',
+  permissionShimmer: 'ansi:magentaBright',
+  planMode: 'ansi:magenta',
+  ide: 'ansi:magentaBright',
   promptBorder: 'ansi:white',
   promptBorderShimmer: 'ansi:whiteBright',
   text: 'ansi:black',
@@ -212,9 +212,9 @@ const lightAnsiTheme: Theme = {
   inactive: 'ansi:blackBright',
   inactiveShimmer: 'ansi:white',
   subtle: 'ansi:blackBright',
-  suggestion: 'ansi:blue',
-  remember: 'ansi:blue',
-  background: 'ansi:cyan',
+  suggestion: 'ansi:magenta',
+  remember: 'ansi:magenta',
+  background: 'ansi:magentaBright',
   success: 'ansi:green',
   error: 'ansi:red',
   warning: 'ansi:yellow',
@@ -240,7 +240,7 @@ const lightAnsiTheme: Theme = {
   // Chrome colors
   chromeYellow: 'ansi:yellow', // Chrome yellow
   // TUI V2 colors
-  clawd_body: 'ansi:redBright',
+  clawd_body: 'ansi:magenta',
   clawd_background: 'ansi:black',
   userMessageBackground: 'ansi:white',
   userMessageBackgroundHover: 'ansi:whiteBright',
@@ -251,10 +251,10 @@ const lightAnsiTheme: Theme = {
   memoryBackgroundColor: 'ansi:white',
   rate_limit_fill: 'ansi:yellow',
   rate_limit_empty: 'ansi:black',
-  fastMode: 'ansi:red',
-  fastModeShimmer: 'ansi:redBright',
+  fastMode: 'ansi:magenta',
+  fastModeShimmer: 'ansi:magentaBright',
   briefLabelYou: 'ansi:blue',
-  briefLabelClaude: 'ansi:redBright',
+  briefLabelClaude: 'ansi:magenta',
   rainbow_red: 'ansi:red',
   rainbow_orange: 'ansi:redBright',
   rainbow_yellow: 'ansi:yellow',
@@ -278,14 +278,14 @@ const lightAnsiTheme: Theme = {
 const darkAnsiTheme: Theme = {
   autoAccept: 'ansi:magentaBright',
   bashBorder: 'ansi:magentaBright',
-  claude: 'ansi:redBright',
-  claudeShimmer: 'ansi:yellowBright',
+  claude: 'ansi:magentaBright',
+  claudeShimmer: 'ansi:magentaBright',
   claudeBlue_FOR_SYSTEM_SPINNER: 'ansi:blueBright',
   claudeBlueShimmer_FOR_SYSTEM_SPINNER: 'ansi:blueBright',
-  permission: 'ansi:blueBright',
-  permissionShimmer: 'ansi:blueBright',
-  planMode: 'ansi:cyanBright',
-  ide: 'ansi:blue',
+  permission: 'ansi:magentaBright',
+  permissionShimmer: 'ansi:magentaBright',
+  planMode: 'ansi:magentaBright',
+  ide: 'ansi:magenta',
   promptBorder: 'ansi:white',
   promptBorderShimmer: 'ansi:whiteBright',
   text: 'ansi:whiteBright',
@@ -293,9 +293,9 @@ const darkAnsiTheme: Theme = {
   inactive: 'ansi:white',
   inactiveShimmer: 'ansi:whiteBright',
   subtle: 'ansi:white',
-  suggestion: 'ansi:blueBright',
-  remember: 'ansi:blueBright',
-  background: 'ansi:cyanBright',
+  suggestion: 'ansi:magentaBright',
+  remember: 'ansi:magentaBright',
+  background: 'ansi:magentaBright',
   success: 'ansi:greenBright',
   error: 'ansi:redBright',
   warning: 'ansi:yellowBright',
@@ -321,7 +321,7 @@ const darkAnsiTheme: Theme = {
   // Chrome colors
   chromeYellow: 'ansi:yellowBright', // Chrome yellow
   // TUI V2 colors
-  clawd_body: 'ansi:redBright',
+  clawd_body: 'ansi:magentaBright',
   clawd_background: 'ansi:black',
   userMessageBackground: 'ansi:blackBright',
   userMessageBackgroundHover: 'ansi:white',
@@ -332,10 +332,10 @@ const darkAnsiTheme: Theme = {
   memoryBackgroundColor: 'ansi:blackBright',
   rate_limit_fill: 'ansi:yellow',
   rate_limit_empty: 'ansi:white',
-  fastMode: 'ansi:redBright',
-  fastModeShimmer: 'ansi:redBright',
+  fastMode: 'ansi:magentaBright',
+  fastModeShimmer: 'ansi:magentaBright',
   briefLabelYou: 'ansi:blueBright',
-  briefLabelClaude: 'ansi:redBright',
+  briefLabelClaude: 'ansi:magentaBright',
   rainbow_red: 'ansi:red',
   rainbow_orange: 'ansi:redBright',
   rainbow_yellow: 'ansi:yellow',
@@ -357,15 +357,15 @@ const darkAnsiTheme: Theme = {
  * to avoid inconsistencies from users' custom terminal ANSI color definitions
  */
 const lightDaltonizedTheme: Theme = {
-  autoAccept: 'rgb(135,0,255)', // Electric violet
-  bashBorder: 'rgb(0,102,204)', // Blue instead of pink
-  claude: 'rgb(255,153,51)', // Orange adjusted for deuteranopia
-  claudeShimmer: 'rgb(255,183,101)', // Lighter orange for shimmer effect
+  autoAccept: 'rgb(180,60,120)', // Pink-violet
+  bashBorder: 'rgb(0,102,204)', // Blue
+  claude: 'rgb(200,70,130)', // Pink (luminance-distinct from blue)
+  claudeShimmer: 'rgb(230,110,170)', // Lighter pink for shimmer effect
   claudeBlue_FOR_SYSTEM_SPINNER: 'rgb(51,102,255)', // Bright blue for system spinner
   claudeBlueShimmer_FOR_SYSTEM_SPINNER: 'rgb(101,152,255)', // Lighter bright blue for system spinner shimmer
   permission: 'rgb(51,102,255)', // Bright blue
   permissionShimmer: 'rgb(101,152,255)', // Lighter bright blue for shimmer
-  planMode: 'rgb(51,102,102)', // Muted blue-gray (works for color-blind)
+  planMode: 'rgb(150,50,100)', // Muted pink
   ide: 'rgb(71,130,200)', // Muted blue
   promptBorder: 'rgb(153,153,153)', // Medium gray
   promptBorderShimmer: 'rgb(183,183,183)', // Lighter gray for shimmer
@@ -374,13 +374,13 @@ const lightDaltonizedTheme: Theme = {
   inactive: 'rgb(102,102,102)', // Dark gray
   inactiveShimmer: 'rgb(142,142,142)', // Lighter gray for shimmer effect
   subtle: 'rgb(175,175,175)', // Light gray
-  suggestion: 'rgb(51,102,255)', // Bright blue
-  remember: 'rgb(51,102,255)', // Bright blue
+  suggestion: 'rgb(180,60,120)', // Pink-violet
+  remember: 'rgb(180,60,120)', // Pink-violet
   background: 'rgb(0,153,153)', // Cyan (color-blind friendly)
   success: 'rgb(0,102,153)', // Blue instead of green for deuteranopia
   error: 'rgb(204,0,0)', // Pure red for better distinction
   warning: 'rgb(255,153,0)', // Orange adjusted for deuteranopia
-  merged: 'rgb(135,0,255)', // Electric violet (matches autoAccept)
+  merged: 'rgb(180,60,120)', // Pink-violet
   warningShimmer: 'rgb(255,183,50)', // Lighter orange for shimmer
   diffAdded: 'rgb(153,204,255)', // Light blue instead of green
   diffRemoved: 'rgb(255,204,204)', // Light red
@@ -402,7 +402,7 @@ const lightDaltonizedTheme: Theme = {
   // Chrome colors
   chromeYellow: 'rgb(251,188,4)', // Chrome yellow
   // TUI V2 colors
-  clawd_body: 'rgb(215,119,87)',
+  clawd_body: 'rgb(140,90,210)', // LoveFlow purple
   clawd_background: 'rgb(0,0,0)',
   userMessageBackground: 'rgb(220, 220, 220)', // Slightly darker grey for optimal contrast
   userMessageBackgroundHover: 'rgb(232, 232, 232)', // ≥230 to quantize distinct from base at 256-color level
@@ -411,12 +411,12 @@ const lightDaltonizedTheme: Theme = {
   bashMessageBackgroundColor: 'rgb(250, 245, 250)',
 
   memoryBackgroundColor: 'rgb(230, 245, 250)',
-  rate_limit_fill: 'rgb(51,102,255)', // Bright blue
-  rate_limit_empty: 'rgb(23,46,114)', // Dark blue
-  fastMode: 'rgb(255,106,0)', // Electric orange (color-blind safe)
-  fastModeShimmer: 'rgb(255,150,50)', // Lighter orange for shimmer
+  rate_limit_fill: 'rgb(180,60,120)', // Pink-violet
+  rate_limit_empty: 'rgb(100,30,70)', // Dark pink
+  fastMode: 'rgb(200,70,130)', // LoveFlow pink (color-blind safe)
+  fastModeShimmer: 'rgb(230,110,170)', // Lighter pink for shimmer
   briefLabelYou: 'rgb(37,99,235)', // Blue
-  briefLabelClaude: 'rgb(255,153,51)', // Orange adjusted for deuteranopia (matches claude)
+  briefLabelClaude: 'rgb(200,70,130)', // LoveFlow pink
   rainbow_red: 'rgb(235,95,87)',
   rainbow_orange: 'rgb(245,139,87)',
   rainbow_yellow: 'rgb(250,195,95)',
@@ -438,30 +438,30 @@ const lightDaltonizedTheme: Theme = {
  * from users' custom terminal ANSI color definitions
  */
 const darkTheme: Theme = {
-  autoAccept: 'rgb(175,135,255)', // Electric violet
-  bashBorder: 'rgb(253,93,177)', // Bright pink
-  claude: 'rgb(215,119,87)', // Claude orange
-  claudeShimmer: 'rgb(235,159,127)', // Lighter claude orange for shimmer effect
+  autoAccept: 'rgb(255,120,180)', // LoveFlow pink
+  bashBorder: 'rgb(255,100,170)', // LoveFlow pink
+  claude: 'rgb(255,120,170)', // LoveFlow bright pink
+  claudeShimmer: 'rgb(255,155,200)', // Lighter LoveFlow pink for shimmer effect
   claudeBlue_FOR_SYSTEM_SPINNER: 'rgb(147,165,255)', // Blue for system spinner
   claudeBlueShimmer_FOR_SYSTEM_SPINNER: 'rgb(177,195,255)', // Lighter blue for system spinner shimmer
-  permission: 'rgb(177,185,249)', // Light blue-purple
-  permissionShimmer: 'rgb(207,215,255)', // Lighter blue-purple for shimmer
-  planMode: 'rgb(72,150,140)', // Muted sage green
-  ide: 'rgb(71,130,200)', // Muted blue
-  promptBorder: 'rgb(136,136,136)', // Medium gray
-  promptBorderShimmer: 'rgb(166,166,166)', // Lighter gray for shimmer
+  permission: 'rgb(255,140,190)', // Light pink
+  permissionShimmer: 'rgb(255,170,215)', // Lighter pink for shimmer
+  planMode: 'rgb(255,100,160)', // Pink
+  ide: 'rgb(200,100,150)', // Muted pink
+  promptBorder: 'rgb(180,140,150)', // Pink-gray
+  promptBorderShimmer: 'rgb(200,160,170)', // Lighter pink-gray for shimmer
   text: 'rgb(255,255,255)', // White
   inverseText: 'rgb(0,0,0)', // Black
-  inactive: 'rgb(153,153,153)', // Light gray
-  inactiveShimmer: 'rgb(193,193,193)', // Lighter gray for shimmer effect
-  subtle: 'rgb(80,80,80)', // Dark gray
-  suggestion: 'rgb(177,185,249)', // Light blue-purple
-  remember: 'rgb(177,185,249)', // Light blue-purple
-  background: 'rgb(0,204,204)', // Bright cyan
+  inactive: 'rgb(180,150,160)', // Pinkish gray
+  inactiveShimmer: 'rgb(210,180,190)', // Lighter pink-gray for shimmer effect
+  subtle: 'rgb(100,80,85)', // Dark pink-gray
+  suggestion: 'rgb(255,140,190)', // Light pink
+  remember: 'rgb(255,140,190)', // Light pink
+  background: 'rgb(255,120,170)', // LoveFlow pink
   success: 'rgb(78,186,101)', // Bright green
   error: 'rgb(255,107,128)', // Bright red
   warning: 'rgb(255,193,7)', // Bright amber
-  merged: 'rgb(175,135,255)', // Electric violet (matches autoAccept)
+  merged: 'rgb(255,120,180)', // LoveFlow pink
   warningShimmer: 'rgb(255,223,57)', // Lighter amber for shimmer
   diffAdded: 'rgb(34,92,43)', // Dark green
   diffRemoved: 'rgb(122,41,54)', // Dark red
@@ -483,21 +483,21 @@ const darkTheme: Theme = {
   // Chrome colors
   chromeYellow: 'rgb(251,188,4)', // Chrome yellow
   // TUI V2 colors
-  clawd_body: 'rgb(215,119,87)',
+  clawd_body: 'rgb(180,120,255)', // LoveFlow purple
   clawd_background: 'rgb(0,0,0)',
-  userMessageBackground: 'rgb(55, 55, 55)', // Lighter grey for better visual contrast
-  userMessageBackgroundHover: 'rgb(70, 70, 70)',
-  messageActionsBackground: 'rgb(44, 50, 62)', // cool gray, slight blue
-  selectionBg: 'rgb(38, 79, 120)', // classic dark-mode selection blue (VS Code dark default); light fgs stay readable
-  bashMessageBackgroundColor: 'rgb(65, 60, 65)',
+  userMessageBackground: 'rgb(70, 45, 55)', // Warm dark pink-gray
+  userMessageBackgroundHover: 'rgb(85, 55, 65)',
+  messageActionsBackground: 'rgb(60, 45, 55)', // warm pink-gray, slight pink
+  selectionBg: 'rgb(120, 50, 80)', // dark pink selection
+  bashMessageBackgroundColor: 'rgb(75, 50, 60)',
 
-  memoryBackgroundColor: 'rgb(55, 65, 70)',
-  rate_limit_fill: 'rgb(177,185,249)', // Light blue-purple
-  rate_limit_empty: 'rgb(80,83,112)', // Medium blue-purple
-  fastMode: 'rgb(255,120,20)', // Electric orange for dark bg
-  fastModeShimmer: 'rgb(255,165,70)', // Lighter orange for shimmer
+  memoryBackgroundColor: 'rgb(65, 45, 55)',
+  rate_limit_fill: 'rgb(255,140,190)', // Light pink
+  rate_limit_empty: 'rgb(130,70,100)', // Medium pink
+  fastMode: 'rgb(255,100,165)', // LoveFlow pink for dark bg
+  fastModeShimmer: 'rgb(255,140,195)', // Lighter pink for shimmer
   briefLabelYou: 'rgb(122,180,232)', // Light blue
-  briefLabelClaude: 'rgb(215,119,87)', // Brand orange
+  briefLabelClaude: 'rgb(255,120,170)', // LoveFlow pink
   rainbow_red: 'rgb(235,95,87)',
   rainbow_orange: 'rgb(245,139,87)',
   rainbow_yellow: 'rgb(250,195,95)',
@@ -519,15 +519,15 @@ const darkTheme: Theme = {
  * to avoid inconsistencies from users' custom terminal ANSI color definitions
  */
 const darkDaltonizedTheme: Theme = {
-  autoAccept: 'rgb(175,135,255)', // Electric violet
+  autoAccept: 'rgb(200,100,160)', // Pink-violet
   bashBorder: 'rgb(51,153,255)', // Bright blue
-  claude: 'rgb(255,153,51)', // Orange adjusted for deuteranopia
-  claudeShimmer: 'rgb(255,183,101)', // Lighter orange for shimmer effect
+  claude: 'rgb(220,90,140)', // Pink (luminance-distinct from blue)
+  claudeShimmer: 'rgb(240,130,180)', // Lighter pink for shimmer effect
   claudeBlue_FOR_SYSTEM_SPINNER: 'rgb(153,204,255)', // Light blue for system spinner
   claudeBlueShimmer_FOR_SYSTEM_SPINNER: 'rgb(183,224,255)', // Lighter blue for system spinner shimmer
-  permission: 'rgb(153,204,255)', // Light blue
-  permissionShimmer: 'rgb(183,224,255)', // Lighter blue for shimmer
-  planMode: 'rgb(102,153,153)', // Muted gray-teal (works for color-blind)
+  permission: 'rgb(200,100,160)', // Pink-violet
+  permissionShimmer: 'rgb(220,140,195)', // Lighter pink for shimmer
+  planMode: 'rgb(180,80,130)', // Pink
   ide: 'rgb(71,130,200)', // Muted blue
   promptBorder: 'rgb(136,136,136)', // Medium gray
   promptBorderShimmer: 'rgb(166,166,166)', // Lighter gray for shimmer
@@ -536,13 +536,13 @@ const darkDaltonizedTheme: Theme = {
   inactive: 'rgb(153,153,153)', // Light gray
   inactiveShimmer: 'rgb(193,193,193)', // Lighter gray for shimmer effect
   subtle: 'rgb(80,80,80)', // Dark gray
-  suggestion: 'rgb(153,204,255)', // Light blue
-  remember: 'rgb(153,204,255)', // Light blue
+  suggestion: 'rgb(200,100,160)', // Pink-violet
+  remember: 'rgb(200,100,160)', // Pink-violet
   background: 'rgb(0,204,204)', // Bright cyan (color-blind friendly)
   success: 'rgb(51,153,255)', // Blue instead of green
   error: 'rgb(255,102,102)', // Bright red
   warning: 'rgb(255,204,0)', // Yellow-orange for deuteranopia
-  merged: 'rgb(175,135,255)', // Electric violet (matches autoAccept)
+  merged: 'rgb(200,100,160)', // Pink-violet
   warningShimmer: 'rgb(255,234,50)', // Lighter yellow-orange for shimmer
   diffAdded: 'rgb(0,68,102)', // Dark blue
   diffRemoved: 'rgb(102,0,0)', // Dark red
@@ -564,21 +564,21 @@ const darkDaltonizedTheme: Theme = {
   // Chrome colors
   chromeYellow: 'rgb(251,188,4)', // Chrome yellow
   // TUI V2 colors
-  clawd_body: 'rgb(215,119,87)',
+  clawd_body: 'rgb(170,110,230)', // LoveFlow purple
   clawd_background: 'rgb(0,0,0)',
-  userMessageBackground: 'rgb(55, 55, 55)', // Lighter grey for better visual contrast
-  userMessageBackgroundHover: 'rgb(70, 70, 70)',
-  messageActionsBackground: 'rgb(44, 50, 62)', // cool gray, slight blue
-  selectionBg: 'rgb(38, 79, 120)', // classic dark-mode selection blue (VS Code dark default); light fgs stay readable
-  bashMessageBackgroundColor: 'rgb(65, 60, 65)',
+  userMessageBackground: 'rgb(55, 45, 50)', // Warm dark pink-gray
+  userMessageBackgroundHover: 'rgb(70, 55, 60)',
+  messageActionsBackground: 'rgb(50, 40, 48)', // warm pink-gray
+  selectionBg: 'rgb(100, 50, 80)', // dark pink selection
+  bashMessageBackgroundColor: 'rgb(65, 50, 55)',
 
-  memoryBackgroundColor: 'rgb(55, 65, 70)',
-  rate_limit_fill: 'rgb(153,204,255)', // Light blue
-  rate_limit_empty: 'rgb(69,92,115)', // Dark blue
-  fastMode: 'rgb(255,120,20)', // Electric orange for dark bg (color-blind safe)
-  fastModeShimmer: 'rgb(255,165,70)', // Lighter orange for shimmer
+  memoryBackgroundColor: 'rgb(55, 48, 55)',
+  rate_limit_fill: 'rgb(200,100,160)', // Pink-violet
+  rate_limit_empty: 'rgb(100,50,80)', // Dark pink
+  fastMode: 'rgb(220,90,140)', // LoveFlow pink for dark bg (color-blind safe)
+  fastModeShimmer: 'rgb(240,130,180)', // Lighter pink for shimmer
   briefLabelYou: 'rgb(122,180,232)', // Light blue
-  briefLabelClaude: 'rgb(255,153,51)', // Orange adjusted for deuteranopia (matches claude)
+  briefLabelClaude: 'rgb(220,90,140)', // LoveFlow pink
   rainbow_red: 'rgb(235,95,87)',
   rainbow_orange: 'rgb(245,139,87)',
   rainbow_yellow: 'rgb(250,195,95)',

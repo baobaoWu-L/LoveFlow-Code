@@ -33,7 +33,6 @@ import {
   incrementProjectOnboardingSeenCount,
 } from '../../projectOnboardingState.js';
 import { CondensedLogo } from './CondensedLogo.js';
-import { OffscreenFreeze } from '../OffscreenFreeze.js';
 import { checkForReleaseNotesSync } from '../../utils/releaseNotes.js';
 import { getDumpPromptsPath } from 'src/services/api/dumpPrompts.js';
 import { isEnvTruthy } from 'src/utils/envUtils.js';
@@ -201,8 +200,8 @@ export function LogoV2(): React.ReactNode {
   const layoutMode = getLayoutMode(columns);
 
   const userTheme = resolveThemeSetting(getGlobalConfig().theme);
-  const borderTitle = ` ${color('claude', userTheme)('Claude Code')} ${color('inactive', userTheme)(`v${version}`)} `;
-  const compactBorderTitle = color('claude', userTheme)(' Claude Code ');
+  const borderTitle = ` ${color('claude', userTheme)('LoveFlow-Code')} ${color('inactive', userTheme)(`v${version}`)} `;
+  const compactBorderTitle = color('claude', userTheme)(' LoveFlow-Code ');
 
   // Early return for compact mode
   if (layoutMode === 'compact') {
@@ -224,31 +223,29 @@ export function LogoV2(): React.ReactNode {
     // any change while in scrollback forces a full reset.
     return (
       <>
-        <OffscreenFreeze>
-          <Box
-            flexDirection="column"
-            borderStyle="round"
-            borderColor="claude"
-            borderText={{
-              content: compactBorderTitle,
-              position: 'top',
-              align: 'start',
-              offset: 1,
-            }}
-            paddingX={1}
-            paddingY={1}
-            alignItems="center"
-            width={columns}
-          >
-            <Text bold>{welcomeMessage}</Text>
-            <Box marginY={1}>
-              <Clawd />
-            </Box>
-            <Text dimColor>{modelDisplayName}</Text>
-            <Text dimColor>{billingType}</Text>
-            <Text dimColor>{agentName ? `@${agentName} · ${truncatedCwd}` : truncatedCwd}</Text>
+        <Box
+          flexDirection="column"
+          borderStyle="round"
+          borderColor="claude"
+          borderText={{
+            content: compactBorderTitle,
+            position: 'top',
+            align: 'start',
+            offset: 1,
+          }}
+          paddingX={1}
+          paddingY={1}
+          alignItems="center"
+          width={columns}
+        >
+          <Text bold>{welcomeMessage}</Text>
+          <Box marginY={1}>
+            <Clawd />
           </Box>
-        </OffscreenFreeze>
+          <Text dimColor>{modelDisplayName}</Text>
+          <Text dimColor>{billingType}</Text>
+          <Text dimColor>{agentName ? `@${agentName} · ${truncatedCwd}` : truncatedCwd}</Text>
+        </Box>
         <VoiceModeNotice />
         <Opus1mMergeNotice />
         {ChannelsNoticeModule && <ChannelsNoticeModule.ChannelsNotice />}
@@ -281,73 +278,49 @@ export function LogoV2(): React.ReactNode {
   // Calculate layout dimensions
   const { leftWidth, rightWidth } = calculateLayoutDimensions(columns, layoutMode, optimalLeftWidth);
 
+  const tips = ['Try "write a test for <filepath>"', 'Ask LoveFlow-Code to create a new app or clone a repository'];
+
   return (
     <>
-      <OffscreenFreeze>
-        <Box
-          flexDirection="column"
-          borderStyle="round"
-          borderColor="claude"
-          borderText={{
-            content: borderTitle,
-            position: 'top',
-            align: 'start',
-            offset: 3,
-          }}
-        >
-          {/* Main content */}
-          <Box flexDirection={layoutMode === 'horizontal' ? 'row' : 'column'} paddingX={1} gap={1}>
-            {/* Left Panel */}
-            <Box
-              flexDirection="column"
-              width={leftWidth}
-              justifyContent="space-between"
-              alignItems="center"
-              minHeight={9}
-            >
-              <Box marginTop={1}>
-                <Text bold>{welcomeMessage}</Text>
-              </Box>
-
-              <Clawd />
-
-              <Box flexDirection="column" alignItems="center">
-                <Text dimColor>{modelLine}</Text>
-                <Text dimColor>{cwdLine}</Text>
-              </Box>
-            </Box>
-
-            {/* Vertical divider */}
-            {layoutMode === 'horizontal' && (
-              <Box
-                height="100%"
-                borderStyle="single"
-                borderColor="claude"
-                borderDimColor
-                borderTop={false}
-                borderBottom={false}
-                borderLeft={false}
-              />
-            )}
-
-            {/* Right Panel - Project Onboarding or Recent Activity and What's New */}
-            {layoutMode === 'horizontal' && (
-              <FeedColumn
-                feeds={
-                  showOnboarding
-                    ? [createProjectOnboardingFeed(getSteps()), createRecentActivityFeed(activities)]
-                    : showGuestPassesUpsell
-                      ? [createRecentActivityFeed(activities), createGuestPassesFeed()]
-                      : showOverageCreditUpsell
-                        ? [createRecentActivityFeed(activities), createOverageCreditFeed()]
-                        : [createRecentActivityFeed(activities), createWhatsNewFeed(changelog)]
-                }
-                maxWidth={rightWidth}
-              />
-            )}
+      <Box
+        flexDirection="column"
+        borderStyle="round"
+        borderColor="claude"
+        borderText={{ content: borderTitle, position: 'top', align: 'start', offset: 3 }}
+      >
+        <Box flexDirection="column" paddingX={1} gap={0}>
+          <Box flexDirection="column" alignItems="center">
+            <Clawd />
+          </Box>
+          <Box
+            width="100%"
+            borderStyle="single"
+            borderColor="claude"
+            borderDimColor
+            borderLeft={false}
+            borderRight={false}
+            borderTop={false}
+          />
+          <Box flexDirection="column" paddingY={0} paddingX={2}>
+            {tips.map((t, i) => (
+              <Text key={i}>{t}</Text>
+            ))}
+          </Box>
+          <Box
+            width="100%"
+            borderStyle="single"
+            borderColor="claude"
+            borderDimColor
+            borderLeft={false}
+            borderRight={false}
+            borderTop={false}
+          />
+          <Box flexDirection="column" alignItems="center" paddingY={0}>
+            <Text bold>{welcomeMessage}</Text>
+            <Text dimColor>{cwdLine}</Text>
           </Box>
         </Box>
-      </OffscreenFreeze>
+      </Box>
       <VoiceModeNotice />
       <Opus1mMergeNotice />
       {ChannelsNoticeModule && <ChannelsNoticeModule.ChannelsNotice />}
@@ -358,46 +331,6 @@ export function LogoV2(): React.ReactNode {
         </Box>
       )}
       <EmergencyTip />
-      {process.env.CLAUDE_CODE_TMUX_SESSION && (
-        <Box paddingLeft={2} flexDirection="column">
-          <Text dimColor>tmux session: {process.env.CLAUDE_CODE_TMUX_SESSION}</Text>
-          <Text dimColor>
-            {process.env.CLAUDE_CODE_TMUX_PREFIX_CONFLICTS
-              ? `Detach: ${process.env.CLAUDE_CODE_TMUX_PREFIX} ${process.env.CLAUDE_CODE_TMUX_PREFIX} d (press prefix twice - Claude uses ${process.env.CLAUDE_CODE_TMUX_PREFIX})`
-              : `Detach: ${process.env.CLAUDE_CODE_TMUX_PREFIX} d`}
-          </Text>
-        </Box>
-      )}
-      {announcement && (
-        <Box paddingLeft={2} flexDirection="column">
-          {!process.env.IS_DEMO && config.oauthAccount?.organizationName && (
-            <Text dimColor>Message from {config.oauthAccount.organizationName}:</Text>
-          )}
-          <Text>{announcement}</Text>
-        </Box>
-      )}
-      {showSandboxStatus && (
-        <Box paddingLeft={2} flexDirection="column">
-          <Text color="warning">Your bash commands will be sandboxed. Disable with /sandbox.</Text>
-        </Box>
-      )}
-      {process.env.USER_TYPE === 'ant' && !process.env.DEMO_VERSION && (
-        <Box paddingLeft={2} flexDirection="column">
-          <Text dimColor>Use /issue to report model behavior issues</Text>
-        </Box>
-      )}
-      {process.env.USER_TYPE === 'ant' && !process.env.DEMO_VERSION && (
-        <Box paddingLeft={2} flexDirection="column">
-          <Text color="warning">[ANT-ONLY] Logs:</Text>
-          <Text dimColor>API calls: {getDisplayPath(getDumpPromptsPath())}</Text>
-          <Text dimColor>Debug logs: {getDisplayPath(getDebugLogPath())}</Text>
-          {isDetailedProfilingEnabled() && (
-            <Text dimColor>Startup Perf: {getDisplayPath(getStartupPerfLogPath())}</Text>
-          )}
-        </Box>
-      )}
-      {process.env.USER_TYPE === 'ant' && <GateOverridesWarning />}
-      {process.env.USER_TYPE === 'ant' && <ExperimentEnrollmentNotice />}
     </>
   );
 }
