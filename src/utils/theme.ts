@@ -115,12 +115,12 @@ export type ThemeSetting = (typeof THEME_SETTINGS)[number]
 const lightTheme: Theme = {
   autoAccept: 'rgb(215,80,130)', // LoveFlow pink
   bashBorder: 'rgb(150,100,220)', // LoveFlow purple
-  claude: 'rgb(235,100,150)', // LoveFlow warm pink
-  claudeShimmer: 'rgb(255,145,185)', // Lighter LoveFlow pink for shimmer effect
+  claude: 'rgb(180,105,215)', // LoveFlow purple
+  claudeShimmer: 'rgb(210,145,230)', // Lighter LoveFlow purple for shimmer effect
   claudeBlue_FOR_SYSTEM_SPINNER: 'rgb(87,105,247)', // Medium blue for system spinner
   claudeBlueShimmer_FOR_SYSTEM_SPINNER: 'rgb(117,135,255)', // Lighter blue for system spinner shimmer
-  permission: 'rgb(200,80,150)', // Pink-purple
-  permissionShimmer: 'rgb(230,120,190)', // Lighter pink-purple for shimmer
+  permission: 'rgb(170,85,200)', // LoveFlow purple
+  permissionShimmer: 'rgb(200,125,220)', // Lighter LoveFlow purple for shimmer
   planMode: 'rgb(180,60,120)', // Muted pink
   ide: 'rgb(200,90,140)', // Pinkish
   promptBorder: 'rgb(170,120,190)', // Purple-gray
@@ -278,11 +278,11 @@ const lightAnsiTheme: Theme = {
 const darkAnsiTheme: Theme = {
   autoAccept: 'ansi:magentaBright',
   bashBorder: 'ansi:magenta',
-  claude: 'ansi:magentaBright',
-  claudeShimmer: 'ansi:magentaBright',
+  claude: 'ansi:magenta',
+  claudeShimmer: 'ansi:magenta',
   claudeBlue_FOR_SYSTEM_SPINNER: 'ansi:blueBright',
   claudeBlueShimmer_FOR_SYSTEM_SPINNER: 'ansi:blueBright',
-  permission: 'ansi:magentaBright',
+  permission: 'ansi:magenta',
   permissionShimmer: 'ansi:magentaBright',
   planMode: 'ansi:magentaBright',
   ide: 'ansi:magenta',
@@ -359,7 +359,7 @@ const darkAnsiTheme: Theme = {
 const lightDaltonizedTheme: Theme = {
   autoAccept: 'rgb(180,60,120)', // Pink-violet
   bashBorder: 'rgb(0,102,204)', // Blue
-  claude: 'rgb(200,70,130)', // Pink (luminance-distinct from blue)
+  claude: 'rgb(180,80,190)', // Purple (luminance-distinct from blue)
   claudeShimmer: 'rgb(230,110,170)', // Lighter pink for shimmer effect
   claudeBlue_FOR_SYSTEM_SPINNER: 'rgb(51,102,255)', // Bright blue for system spinner
   claudeBlueShimmer_FOR_SYSTEM_SPINNER: 'rgb(101,152,255)', // Lighter bright blue for system spinner shimmer
@@ -440,12 +440,12 @@ const lightDaltonizedTheme: Theme = {
 const darkTheme: Theme = {
   autoAccept: 'rgb(255,120,180)', // LoveFlow pink
   bashBorder: 'rgb(180,120,255)', // LoveFlow purple
-  claude: 'rgb(255,120,170)', // LoveFlow bright pink
-  claudeShimmer: 'rgb(255,155,200)', // Lighter LoveFlow pink for shimmer effect
+  claude: 'rgb(200,120,255)', // LoveFlow purple
+  claudeShimmer: 'rgb(220,155,255)', // Lighter LoveFlow purple for shimmer effect
   claudeBlue_FOR_SYSTEM_SPINNER: 'rgb(147,165,255)', // Blue for system spinner
   claudeBlueShimmer_FOR_SYSTEM_SPINNER: 'rgb(177,195,255)', // Lighter blue for system spinner shimmer
-  permission: 'rgb(255,140,190)', // Light pink
-  permissionShimmer: 'rgb(255,170,215)', // Lighter pink for shimmer
+  permission: 'rgb(200,140,255)', // LoveFlow purple
+  permissionShimmer: 'rgb(220,170,255)', // Lighter LoveFlow purple for shimmer
   planMode: 'rgb(255,100,160)', // Pink
   ide: 'rgb(200,100,150)', // Muted pink
   promptBorder: 'rgb(160,120,200)', // Purple-gray
@@ -521,11 +521,11 @@ const darkTheme: Theme = {
 const darkDaltonizedTheme: Theme = {
   autoAccept: 'rgb(200,100,160)', // Pink-violet
   bashBorder: 'rgb(51,153,255)', // Bright blue
-  claude: 'rgb(220,90,140)', // Pink (luminance-distinct from blue)
+  claude: 'rgb(190,100,200)', // Purple (luminance-distinct from blue)
   claudeShimmer: 'rgb(240,130,180)', // Lighter pink for shimmer effect
   claudeBlue_FOR_SYSTEM_SPINNER: 'rgb(153,204,255)', // Light blue for system spinner
   claudeBlueShimmer_FOR_SYSTEM_SPINNER: 'rgb(183,224,255)', // Lighter blue for system spinner shimmer
-  permission: 'rgb(200,100,160)', // Pink-violet
+  permission: 'rgb(180,105,200)', // Purple
   permissionShimmer: 'rgb(220,140,195)', // Lighter pink for shimmer
   planMode: 'rgb(180,80,130)', // Pink
   ide: 'rgb(71,130,200)', // Muted blue
