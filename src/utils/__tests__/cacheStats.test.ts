@@ -16,9 +16,9 @@ import * as fsp from 'node:fs/promises'
 // ---------------------------------------------------------------------------
 // Mock envUtils so getClaudeConfigHomeDir returns a temp dir while THIS
 // suite runs. After it finishes, getClaudeConfigHomeDir falls back to the
-// real semantics (process.env.CLAUDE_CONFIG_DIR ?? ~/.claude) so other
-// tests in the same process (envUtils.test.ts in particular) don't see
-// the test's tmpDir leaked as the user config home.
+// real semantics (LOVEFLOW_CONFIG_DIR ?? CLAUDE_CONFIG_DIR ?? ~/.loveflow)
+// so other tests in the same process (envUtils.test.ts in particular) don't
+// see the test's tmpDir leaked as the user config home.
 // ---------------------------------------------------------------------------
 let tmpDir = ''
 let useMockForCacheStats = true
@@ -65,9 +65,11 @@ const mockedGetClaudeConfigHomeDir: (() => string) & {
   () =>
     useMockForCacheStats
       ? tmpDir
-      : (process.env.CLAUDE_CONFIG_DIR ?? join(homedir(), '.claude')).normalize(
-          'NFC',
-        ),
+      : (
+          process.env.LOVEFLOW_CONFIG_DIR ??
+          process.env.CLAUDE_CONFIG_DIR ??
+          join(homedir(), '.loveflow')
+        ).normalize('NFC'),
   {
     cache: {
       clear: () => {},
